@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Info Collector</title>
+    <style>
+        h1 {
+            text-align: center;
+            text-shadow: 3px 2px #bcb6b6;
+            color: #7a7171;
+        }
+
+        body {
+            background-image: url("b.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0;
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5vh;
+        }
+
+        p {
+            color: rgb(196, 224, 70);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+        }
+
+        button:hover{
+            cursor: pointer;
+            color: rgb(255, 255, 255);
+            background-color: black;
+            border-radius: 5px;
+            transition-duration: 2s;
+        }
+        button{
+            border-radius: 5px;
+        }
+        h1:hover{
+            color: #b60e0e;
+            transition: 50ms;
+            font-size: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Student Info Collector</h1>
+    <p id="output"></p>
+    <div class="container">
+        <button onclick="student()">Enter Student Details</button>
+    </div>
+    <script>
+        function student() {
+            console.clear()
+            let name = prompt("Enter student name")
+            let age = parseInt(prompt("Enter Student age"))
+            let ph = parseInt(prompt("Enter mobile number (10 digit)"))
+            let mail = prompt("Enter Mail-id")
+            let mark = parseFloat(prompt("Enter student marks"))
+            if (!name || isNaN(age) || isNaN(ph) || !mail || isNaN(mark)) {
+                console.error("Give me a correct details")
+                return
+            }
+            let sure = confirm("Do you want to store these deatils")
+            if (sure) {
+                document.getElementById('output').innerText =
+                    `Student name = ${name}\n` +
+                    `Age = ${age}\n` +
+                    `Mobile number = ${ph}\n` +
+                    `Mail-Id = ${mail}\n` +
+                    `Mark = ${mark}\n`
+                alert("Details submitted successfully")
+                console.log(name);
+                console.log(age);
+                console.log(ph);
+                console.log(mail);
+                console.log(mark)
+
+            }
+            else {
+                console.warn("User declined the submission")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
